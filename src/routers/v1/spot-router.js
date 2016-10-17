@@ -1,13 +1,14 @@
 var Router = require('restify-router').Router;;
 var router = new Router();
-var SpotManager = require('spot-module').core.SpotManager;
+var SpotManager = require('spot-module').managers.core.SpotManager;
 var db = require('../../db');
 var resultFormatter = require("../../result-formatter");
+var passport = require('../../passports/jwt-passport');
 
 const apiVersion = '1.0.0';
 const baseUri = '/';
 
-router.get(baseUri, (request, response, next) => {
+router.get(baseUri, passport, (request, response, next) => {
     db.get().then(db => {
         var manager = new SpotManager(db, {
             username: 'router'
@@ -25,12 +26,12 @@ router.get(baseUri, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
+            });
 
-    })
+    });
 });
 
-router.get(`${baseUri}:id`, (request, response, next) => {
+router.get(`${baseUri}:id`, passport, (request, response, next) => {
     db.get().then(db => {
         var manager = new SpotManager(db, {
             username: 'router'
@@ -46,12 +47,12 @@ router.get(`${baseUri}:id`, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
+            });
 
-    })
+    });
 });
 
-router.post(baseUri, (request, response, next) => {
+router.post(baseUri, passport, (request, response, next) => {
     db.get().then(db => {
         var manager = new SpotManager(db, {
             username: 'router'
@@ -68,12 +69,12 @@ router.post(baseUri, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
+            });
 
-    })
+    });
 });
 
-router.put(`${baseUri}:id`, (request, response, next) => {
+router.put(`${baseUri}:id`, passport, (request, response, next) => {
     db.get().then(db => {
         var manager = new SpotManager(db, {
             username: 'router'
@@ -90,12 +91,12 @@ router.put(`${baseUri}:id`, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
+            });
 
-    })
+    });
 });
 
-router.del(`${baseUri}:id`, (request, response, next) => {
+router.del(`${baseUri}:id`, passport, (request, response, next) => {
     db.get().then(db => {
         var manager = new SpotManager(db, {
             username: 'router'
@@ -112,8 +113,8 @@ router.del(`${baseUri}:id`, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
-    })
+            });
+    });
 });
 
 

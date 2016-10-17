@@ -20,10 +20,13 @@
     "mongo-factory": "^1.0.0",
     "mongodb": "^2.2.9",
     "passport": "^0.3.2",
+    "passport-jwt": "^2.1.0",
+    "passport-local": "^1.0.0",
+    "passport-facebook": "^2.1.1",
     "restify": "^4.1.1",
     "restify-router": "^0.2.1",
     "should": "^11.1.0",
-    "spot-module": "git+https://github.com/pinkgorilla/spot-module.git"
+    "spot-module": "git+https://github.com/pinkgorilla/spot-module.git#dev"
   },
   "devDependencies": {
     "supertest": "^2.0.0"
