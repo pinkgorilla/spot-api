@@ -1,0 +1,31 @@
+{
+  "name": "spot-api",
+  "version": "1.0.0",
+  "description": "spot RESTful api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinkgorilla/spot-api.git"
+  },
+  "author": "Tris Setiawan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pinkgorilla/spot-api/issues"
+  },
+  "homepage": "https://github.com/pinkgorilla/spot-api#readme",
+  "dependencies": {
+    "mongo-factory": "^1.0.0",
+    "mongodb": "^2.2.9",
+    "passport": "^0.3.2",
+    "restify": "^4.1.1",
+    "restify-router": "^0.2.1",
+    "should": "^11.1.0",
+    "spot-module": "git+https://github.com/pinkgorilla/spot-module.git"
+  },
+  "devDependencies": {
+    "supertest": "^2.0.0"
+  }
+}
