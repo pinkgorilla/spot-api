@@ -21,8 +21,10 @@ server.use(function(request, response, next) {
 });
 
 var spotRouter = require('./src/routers/v1/spot-router');
-// spotRouter.applyRoutes(server, "/spots");
-spotRouter.applyRoutes(server, "/v1/spots");
+var v1SpotRouter = require('./src/routers/v1/spot-router');
+
+spotRouter.applyRoutes(server, "/spots");
+v1SpotRouter.applyRoutes(server, "/v1/spots");
 
 server.listen(process.env.PORT, process.env.IP);
-console.log(`server created at ${process.env.IP}:${process.env.PORT}`)
+console.log(`server created at ${process.env.IP}:${process.env.PORT}`);
