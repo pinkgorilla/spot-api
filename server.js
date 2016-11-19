@@ -14,14 +14,26 @@ server.use(passport.initialize());
 
 server.use(function(request, response, next) {
     var query = request.query;
-    query.order = !query.order ? {} : JSON.parse(query.order);
-    query.filter = !query.filter ? {} : JSON.parse(query.filter);
+    try {
+        query.order = !query.order ? {} : JSON.parse(query.order);
+    }
+    catch (e) {
+        query.order = {};
+    }
+    try {
+        query.filter = !query.filter ? {} : JSON.parse(query.filter);
+    }
+    catch (e) {
+        query.filter = {};
+    }
+
     request.queryInfo = query;
     next();
 });
 
-var spotRouter = require('./src/routers/v1/spot-router');
-var v1SpotRouter = require('./src/routers/v1/spot-router');
+var getV1SpotRouter = require('./src/routers/v1/spot-router');
+var spotRouter = getV1SpotRouter();
+var v1SpotRouter = getV1SpotRouter();
 
 spotRouter.applyRoutes(server, "/spots");
 v1SpotRouter.applyRoutes(server, "/v1/spots");
