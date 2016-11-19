@@ -25,9 +25,9 @@ router.get(baseUri, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
+            });
 
-    })
+    });
 });
 
 router.get(`${baseUri}:id`, (request, response, next) => {
@@ -46,9 +46,9 @@ router.get(`${baseUri}:id`, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
+            });
 
-    })
+    });
 });
 
 router.post(baseUri, (request, response, next) => {
@@ -68,9 +68,9 @@ router.post(baseUri, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
+            });
 
-    })
+    });
 });
 
 router.put(`${baseUri}:id`, (request, response, next) => {
@@ -90,9 +90,9 @@ router.put(`${baseUri}:id`, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
+            });
 
-    })
+    });
 });
 
 router.del(`${baseUri}:id`, (request, response, next) => {
@@ -112,8 +112,8 @@ router.del(`${baseUri}:id`, (request, response, next) => {
             .catch(e => {
                 var error = resultFormatter.fail(apiVersion, 400, e);
                 response.send(400, error);
-            })
-    })
+            });
+    });
 });
 
 
